@@ -13,8 +13,11 @@ public class switchDemo
 		   case "Run":
 		   System.out.println("快跑");
 		   break;
+		   case "第一步":
+		   System.out.println("运行第一步");
 		   default:
 		   System.out.println("我不知道你在说什么");
+		   
 	   }
    }
 }
