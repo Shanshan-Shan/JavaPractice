@@ -1,4 +1,4 @@
-//判断闰年
+//判断是否是闰年
 
 public class leapYear
 {
