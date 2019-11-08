@@ -19,7 +19,9 @@ public class arrayPractice1{
 		return -1;
 	}
 	public static void main(String[] args){
-		int[] arr = {1,2,3,4,5};
+		int[] arr = {1,2,3,4,5};    //数组静态初始化的简化方法；习惯用此种方法
+		                            //只有定义数组的同时初始化数组方可用简化形式。
+									//静态初始化：指定值。动态-->指定长度。
 		System.out.println(binarySearch(arr,4));
 	}
 	
