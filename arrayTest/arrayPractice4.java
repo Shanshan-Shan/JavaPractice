@@ -7,13 +7,11 @@ public class arrayPractice4 {
 		a = b;
 		b = t;
 	}
-	
 	public static void swap(int[] arr, int i, int j) {
 		int t = arr[i];
 		arr[i] = arr[j];
 		arr[j] = t;
 	}
-	
 	public static void main(String[] args) {
 		int[] array = { 9, 13 };
 		System.out.println(Arrays.toString(array));
