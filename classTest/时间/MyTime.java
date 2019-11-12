@@ -1,3 +1,5 @@
+//实现时间的后移
+
 public class MyTime {
 	private int hour;
 	private int minute;
@@ -38,12 +40,16 @@ public class MyTime {
 		
 		second += seconds;
 		
-		while (second > 60) {
+		while (second >= 60) {
 			second -= 60;
 			minute += 1;
-			if (minute > 60) {
+			if (minute >= 60) {
 				hour += 1;
 				minute = 1;
+				if(hour >= 24) {
+					hour -= 24;
+					minute = 1;
+				}
 			}
 		}
 	}
@@ -53,6 +59,7 @@ public class MyTime {
 	// 2019-11-（-50）
 	// 2019-10-（-19）
 	// 2019-09-11
+	/*
 	public void sub(int seconds) {
 		day -= days;
 		while (day <= 0) {
