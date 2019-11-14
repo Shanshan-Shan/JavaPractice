@@ -60,9 +60,8 @@ public class Bike{
 				b.currentSpeed = 0;
 				b.maxSpeed = 193;		
 				//b.speed(0,193);
+				
 			}
-
-
 }
 
 	
