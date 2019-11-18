@@ -52,18 +52,20 @@ public class Bike{
 		}
 		public static void main(String[] args){
 				Bike b = new Bike();
+				b.setColor("hello");
 				
 				System.out.println(b.getColor());
 				System.out.println(b.getCurrentSpeed());
 				
 				b.color = "黑色";
 				b.currentSpeed = 0;
-				b.maxSpeed = 193;		
+				b.maxSpeed = 193;
+				
 				//b.speed(0,193);
 				
-			}
+		}
 }
 
-	
+
 
 	
