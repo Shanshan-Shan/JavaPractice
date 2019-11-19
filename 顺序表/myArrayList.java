@@ -1,3 +1,5 @@
+//顺序表的尾插/尾删
+
 import java.util.Arrays;
 
 // 顺序表中存储的元素的类型是 int 类型
@@ -36,10 +38,15 @@ public class myArrayList{
 	
 	public static void main(String[] args) {
 		myArrayList list = new myArrayList();
+
 		list.pushBack(1);
 		list.pushBack(2);
 		list.pushBack(3);
 	
-		System.out.println(list); // 30 20 10 1 2 3
+		System.out.println(list); // 1 2 3
+		
+        list.popBack();
+		System.out.println(list); // 1 2
+		
 	}
 }
