@@ -51,12 +51,12 @@ public class MyLinkedList {
 		head = pushFront(head,3); 
 		head = pushFront(head,4); 
 		
-		printLinkedList(head);
+		printLinkedList(head); // 4 3 2 1 0
 		
 		head = popFront(head); //头删
 		head = popFront(head);
 		
-		printLinkedList(head);
+		printLinkedList(head); // 2 1 0
 		
 	}
 }
