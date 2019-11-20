@@ -1,6 +1,9 @@
 //顺序表的头插/头删
 //顺序表的插入
 
+//考虑容量不够的情况的处理
+//判断容量不够：size + 要插入的数据 > array.length
+
 import java.util.Arrays;
 
 public class arrayList{
@@ -37,7 +40,15 @@ public class arrayList{
 		
 	}
 	
-	
+	//下标插入
+	public void insert(int element, int index) {
+		//从index后面数据都后移一位
+		for(int i = size; i > index; i--) {
+			array[i] = array[i-1];
+		}
+		array[index] = element;
+		size++;
+	}
 	
 	
 	@Override
@@ -53,7 +64,10 @@ public class arrayList{
 		System.out.println(list); // 3 2 1
 		
 		list.popFront();
-		System.out.println(list); // 2 1 
+		System.out.println(list); // 2 1 0
+		
+		list.insert(100,1);        //在下标为1的位置插入100
+		System.out.println(list);  //2 100 1 0
 		
 	}
 }
