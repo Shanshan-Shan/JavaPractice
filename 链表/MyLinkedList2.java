@@ -1,4 +1,5 @@
 //练习链表的尾插尾删
+//链表的尾插尾删一定要注意分情况讨论
 
 public class MyLinkedList2 {
 	public static Node buildLinkedListManual() {
@@ -30,14 +31,16 @@ public class MyLinkedList2 {
 	public static Node pushBack(Node head, int val) {
 		Node node = new Node(val);
 		if (head == null) {
+			//链表中没有节点
 			return node;
 		}else {
+			//链表至少有一个节点
 			Node cur = head;
 			while (cur.next != null) {
 				cur = cur.next;
 			}
-			cur.next = head;
-			return node;	
+			cur.next = node;
+			return head;	
 			}
 	}
 
@@ -60,24 +63,23 @@ public class MyLinkedList2 {
 	}
 	
 	public static void main(String[] args) {
-		//
 		Node head = null;
-     	pushBack(head,0);  
-		pushBack(head,1); 
-		pushBack(head,2); 
-		pushBack(head,3); 
-		pushBack(head,4); 
-		
-		printLinkedList(head);
-		
-		popBack(head);
-		popBack(head);
-		
-		printLinkedList(head);
+     	head = pushBack(head,0);  //语法：head =   ；
+		head = pushBack(head,1); 
+		head = pushBack(head,2); 
+		head = pushBack(head,3); 
+		head = pushBack(head,4); 
+		printLinkedList(head); // 0 1 2 3 4 
 		
 		popBack(head);
+		popBack(head);
+		printLinkedList(head); // 0 1 2
 		
-		printLinkedList(head);
-		
+		popBack(head);
+		printLinkedList(head); // 0 1 
+	
 	}
 }
+
+
+
