@@ -2,7 +2,7 @@
 //顺序表的插入
 
 //考虑容量不够的情况的处理
-//判断容量不够：size + 要插入的数据 > array.length
+//判断容量够不够：size + 要插入的数据 > array.length
 
 import java.util.Arrays;
 
@@ -18,6 +18,7 @@ public class arrayList{
 	//头插
 	public void pushFront(int element) {
 		//将所有数据都后移一位
+		
 		for(int i = size; i > 0; i--) {   //i 代表的含义：空心
 			array[i] = array[i-1];
 		}
@@ -40,8 +41,12 @@ public class arrayList{
 		
 	}
 	
-	//下标插入
+	//下标插入，插入的时候考虑容量
+	//index--要插入的位置
 	public void insert(int element, int index) {
+		if(index > size || index < 0) {        //要插入的位置不合法的情况
+			throw new ArrayIndexOutOfBoundsException(index);
+		}
 		//从index后面数据都后移一位
 		for(int i = size; i > index; i--) {
 			array[i] = array[i-1];
@@ -49,7 +54,16 @@ public class arrayList{
 		array[index] = element;
 		size++;
 	}
+
+	//判断容量够不够：size + 要插入的数据 > array.length
+	private boolean checkCapacity(int num) {
+		return size + num <= array.length;
+	}
 	
+	//扩容
+	private void ensureCapacity() {
+		array = Arrays.copyOf(array, array.length * 2);
+	}
 	
 	@Override
 	public String toString() {
@@ -67,7 +81,16 @@ public class arrayList{
 		System.out.println(list); // 2 1 0
 		
 		list.insert(100,1);        //在下标为1的位置插入100
+		list.insert(100,1);  
+		list.insert(100,1);  
+		list.insert(100,1);  
+		list.insert(100,1);  
+		list.insert(100,1); 
+				
 		System.out.println(list);  //2 100 1 0
+		System.out.println(list.array.length);
+	
+		
 		
 	}
 }
