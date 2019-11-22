@@ -1,5 +1,4 @@
-//顺序表的头插/头删
-//顺序表的插入
+//顺序表的头插/头删/插入/扩容
 
 //考虑容量不够的情况的处理
 //判断容量够不够：size + 要插入的数据 > array.length
@@ -47,12 +46,27 @@ public class arrayList{
 		if(index > size || index < 0) {        //要插入的位置不合法的情况
 			throw new ArrayIndexOutOfBoundsException(index);
 		}
+		boolean r = checkCapacity(1);
+		if(!r) {
+			ensureCapacity();
+		}
 		//从index后面数据都后移一位
 		for(int i = size; i > index; i--) {
 			array[i] = array[i-1];
 		}
 		array[index] = element;
 		size++;
+	}
+	
+	public void erase(int index) {
+		if(size == 0) {
+			System.out.println("空的");
+			return;
+		}
+		for(int i = index + 1; i < size; i++) {
+			array[i-1] = array[i];
+		}
+		array[--size] = 0;
 	}
 
 	//判断容量够不够：size + 要插入的数据 > array.length
@@ -84,6 +98,8 @@ public class arrayList{
 		list.insert(100,1);  
 		list.insert(100,1);  
 		list.insert(100,1);  
+		list.insert(100,1);  
+		list.insert(100,1); 
 		list.insert(100,1);  
 		list.insert(100,1); 
 				
