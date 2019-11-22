@@ -46,9 +46,9 @@ public class arrayList{
 		if(index > size || index < 0) {        //要插入的位置不合法的情况
 			throw new ArrayIndexOutOfBoundsException(index);
 		}
-		boolean r = checkCapacity(1);
-		if(!r) {
-			ensureCapacity();
+		boolean r = checkCapacity(1); //定义一个boolean类型变量r接收checkCapacity的返回值
+		if(!r) {                  //如果容量不够
+			ensureCapacity();     //调用扩容方法
 		}
 		//从index后面数据都后移一位
 		for(int i = size; i > index; i--) {
@@ -57,21 +57,21 @@ public class arrayList{
 		array[index] = element;
 		size++;
 	}
-	
+	//
 	public void erase(int index) {
 		if(size == 0) {
 			System.out.println("空的");
 			return;
 		}
 		for(int i = index + 1; i < size; i++) {
-			array[i-1] = array[i];
+			array[i-1] = array[i];   //要插入位置的数据后移
 		}
 		array[--size] = 0;
 	}
 
 	//判断容量够不够：size + 要插入的数据 > array.length
 	private boolean checkCapacity(int num) {
-		return size + num <= array.length;
+		return size + num <= array.length;    //插入的数据<array长度为真
 	}
 	
 	//扩容
