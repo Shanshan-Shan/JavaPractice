@@ -26,14 +26,14 @@ public class MyLinkedList {
 		}
 	}
 	
-	//实现链表的头插
+	//实现链表的头插--o(1)
 	public static Node pushFront(Node head, int val) {
 		Node node = new Node(val);
 		node.next = head;
 		return node;	
 	}
 
-	//实现链表的头删
+	//实现链表的头删--o(1)
 	public static Node popFront(Node head) {
 		if (head == null) {                                    //==
 			throw new RuntimeException("空链表");
