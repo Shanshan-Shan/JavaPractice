@@ -27,7 +27,8 @@ public class MyLinkedList2 {
 		}
 	}
 	
-	//实现链表的尾插
+	//实现链表的尾插--o(n)
+	//尾插可以优化到--o(1)
 	public static Node pushBack(Node head, int val) {
 		Node node = new Node(val);
 		if (head == null) {
@@ -35,7 +36,7 @@ public class MyLinkedList2 {
 			return node;
 		}else {
 			//链表至少有一个节点
-			Node cur = head;
+			Node cur = head;   //找最后一个节点
 			while (cur.next != null) {
 				cur = cur.next;
 			}
@@ -44,7 +45,12 @@ public class MyLinkedList2 {
 			}
 	}
 
-	//实现链表的尾删
+
+	//实现链表的尾删--o(n)
+	//尾删优化到o(1)--利用双向链表
+	//last.prev.next = null;
+	//last = last.next;
+	
 	public static Node popBack(Node head) {
 		if (head == null) {                                    //==
 			throw new RuntimeException("空链表");
@@ -52,7 +58,7 @@ public class MyLinkedList2 {
 		if (head.next == null) {
 			return null;
 		} else {
-			Node cur = head;
+			Node cur = head;   //找倒数第二个节点
 			while (cur.next.next != null) {
 				cur = cur.next;
 			}
