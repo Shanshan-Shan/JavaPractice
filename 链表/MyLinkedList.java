@@ -28,9 +28,9 @@ public class MyLinkedList {
 	
 	//实现链表的头插--o(1)
 	public static Node pushFront(Node head, int val) {
-		Node node = new Node(val);
-		node.next = head;
-		return node;	
+		Node node = new Node(val); //要插入的值val给新节点node
+		node.next = head;          //新节点node指向head,实现头插
+		return node;	           //返回新链表的头节点，为什么不是return 
 	}
 
 	//实现链表的头删--o(1)
