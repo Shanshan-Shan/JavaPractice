@@ -1,6 +1,6 @@
 package 接口practice;
 
-//用
+//用接口功能
 public class UseList {
     public static MyList selectYiFang() {
         return new MyLinkedList();
