@@ -68,6 +68,7 @@ public class MyLinkedList {
         size--;
     }
 
+    //覆写toString，可以按自己想要的输出方式打印链表
     @Override
     public String toString() {
         //链表打印成"1 --> 2 --> null"的格式
