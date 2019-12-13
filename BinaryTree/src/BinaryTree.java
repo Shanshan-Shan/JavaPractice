@@ -21,7 +21,16 @@ public class BinaryTree {
             preOrder(root.right);    //递归
         }
     }
-    
+
+    //中序遍历--左根右
+    public void inOrder(Node root) {
+        if (root != null) {
+            inOrder(root.left);
+            System.out.print(root.val);
+            inOrder(root.right);
+        }
+    }
+
     //建树
     public Node bulidTree() {
         Node root = new Node('A');
@@ -48,7 +57,8 @@ public class BinaryTree {
             Node root = bTree.bulidTree();
             bTree.preOrder(root);  //ABDEHCFG
             System.out.println();
-           
+            bTree.inOrder(root);   //DBEHAFCG
+            System.out.println();
           
         }
 }
