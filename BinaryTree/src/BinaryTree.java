@@ -5,9 +5,11 @@ class Node{
     Node right;
     public Node(char val){
         this.val = val;
+        left = right = null;
     }
 }
 public class BinaryTree {
+    public static int size = 0;
 
     //前序遍历--根左右
     public void preOrder(Node root) {
@@ -41,6 +43,15 @@ public class BinaryTree {
 
     }
 
+    //遍历--求节点个数
+    public void getSize1(Node root){
+        if(root != null){
+            getSize1(root.left);
+            getSize1(root.right);
+            size++;
+        }
+    }
+
     //建树
     public Node bulidTree() {
         Node root = new Node('A');
@@ -61,7 +72,6 @@ public class BinaryTree {
         return root;
     }
 
-   
         public static void main (String[]args){
             BinaryTree bTree = new BinaryTree();
             Node root = bTree.bulidTree();
@@ -71,6 +81,9 @@ public class BinaryTree {
             System.out.println();
             bTree.postOrder(root);  //DHEBFGCA
             System.out.println();
+
+            bTree.getSize1(root);
+            System.out.println(BinaryTree.size);
           
         }
 }
