@@ -52,6 +52,16 @@ public class BinaryTree {
         }
     }
 
+    //子问题--求节点个数
+    public int getSize2(Node root){
+        if(root == null)
+            return 0;
+        if(root.left == null && root.right == null)
+            return 1;
+        //整棵树节点等于：左右节点加上当前节点
+        return getSize2(root.left) + getSize2(root.right) + 1;
+    }
+
     //建树
     public Node bulidTree() {
         Node root = new Node('A');
@@ -84,6 +94,7 @@ public class BinaryTree {
 
             bTree.getSize1(root);
             System.out.println(BinaryTree.size);
+            System.out.println(bTree.getSize2(root));
           
         }
 }
