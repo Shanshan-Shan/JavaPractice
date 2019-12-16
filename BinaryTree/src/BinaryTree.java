@@ -10,6 +10,7 @@ class Node{
 }
 public class BinaryTree {
     public static int size = 0;
+    public static int leafSize = 0;
 
     //前序遍历--根左右
     public void preOrder(Node root) {
@@ -62,6 +63,37 @@ public class BinaryTree {
         return getSize2(root.left) + getSize2(root.right) + 1;
     }
 
+    //求叶子节点的个数--遍历思路
+    public void getLeafSize1(Node root){
+        if(root == null){
+            return;
+        }
+        if(root.right == null && root.left == null){
+            leafSize++;
+            return;
+        }
+        getLeafSize1(root.right);
+        getLeafSize1(root.left);
+    }
+
+    //求叶子节点个数--子问题思路
+    public int getLeafSize2(Node root){
+        if(root == null)
+            return 0;
+        if(root.left == null && root.right == null)
+            return 1;
+        return getLeafSize2(root.left) + getLeafSize2(root.right);
+    }
+
+    //求第K层节点个数
+    public int getKSize(Node root,int k){
+        if(root == null)
+            return 0;
+        if(k == 1)
+            return 1;
+        return getKSize(root.left, k - 1) + getKSize(root.right, k - 1);
+    }
+
     //建树
     public Node bulidTree() {
         Node root = new Node('A');
@@ -93,8 +125,15 @@ public class BinaryTree {
             System.out.println();
 
             bTree.getSize1(root);
-            System.out.println(BinaryTree.size);
-            System.out.println(bTree.getSize2(root));
+            System.out.println(BinaryTree.size);            // 8
+            System.out.println(bTree.getSize2(root));       // 8
+
+            bTree.getLeafSize1(root);
+            System.out.println(BinaryTree.leafSize);         // 4
+            System.out.println(bTree.getLeafSize2(root));    // 4
+
+            System.out.println(bTree.getKSize(root, 2));  // 2
+            System.out.println(bTree.getKSize(root, 3));  // 4
           
         }
 }
