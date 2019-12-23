@@ -134,4 +134,3 @@ public class BinaryTree2 {
 //        return _isSymmetric(root.left, root.right);
 //    }
 //}
-
