@@ -1,0 +1,101 @@
+MySql 数据库
+
+//---2020-1-3-----------补2019-12-24录屏
+//MySql表的增删改查----数据库约束
+
+
+####  表常用的操作
+//查看表结构
+desc table_name;
+//查询表
+select *from table_name;
+
+
+
+1. 直接用管理员身份打开cmd;
+2. mysql -u root -p
+    use mysql;
+    show databases;
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |      //系统自带
+| db_test1           |               //自己创建的数据库
+| mysql              |                //系统自带
+| performance_schema |    //系统自带
+| sys                |                   //系统自带
++--------------------+
+5 rows in set (0.01 sec)
+
+create database db_tast2;            //创建数据库，语句后面必须有分号
+use db_test2;                                //使用数据库
+drop database if exits db_test2;   //删除数据库
+
+//创建表--表和数据在某个数据库里面
+//操作表，首先使用数据库
+   use db_test2;
+//查看当前所在的数据库    select database();
+
+ select database();
++------------+
+| database() |
++------------+
+| db_tast2   |
++------------+
+1 row in set (0.00 sec)
+
+
+  //字段名字  类型；
+//每列之间逗号，最后一个无符号
+//创建表
+
+create table timetest
+(
+    id int,
+   datetimefield datetime,
+   timestampfield timestamp
+);
+
+//查看表结构
+desc timetest;
+
+//报以下错误---为语法错误，检查逗号，引号等，是不是写成中文的了。。。。。
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int，
+
+//全列插入数据
+insert into timetest values
+(1, '2019-12-24 08:00:00' , '2019-12-23 12:01:01');     //日期中间不加空格
+
+select *from timetest;      //全列查询；
+
+//指定列插入
+insert into timetest(id, datetimefield)values(2, '1000-01-01 00:00:00');
+
+ select *from timetest;
++------+---------------------+---------------------+
+| id   | datetimefield       | timestampfield      |
++------+---------------------+---------------------+
+|    1 | 2019-12-24 08:00:00 | 2019-12-23 12:01:01 |
+|    2 | 1000-01-01 00:00:00 | 2020-01-03 15:24:49 |              // timestampfield 没插入数据---默认的是系统当前时间
++------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+
+insert into timetest(id, timestampfield)values(3, '1970-11-01 00:00:01');
+
+ select *from timetest;
++------+---------------------+---------------------+
+| id   | datetimefield       | timestampfield      |
++------+---------------------+---------------------+
+|    1 | 2019-12-24 08:00:00 | 2019-12-23 12:01:01 |
+|    2 | 1000-01-01 00:00:00 | 2020-01-03 15:24:49 |
+|    3 | NULL                | 1970-11-01 00:00:01 |                   // datetimefield  没插入数据---默认的是null
++------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+
+create table `select`         //创建表，，select是关键字，，，要是非得用，用反义引号，键盘ese退出下面的键
+(
+   id int
+);
+
