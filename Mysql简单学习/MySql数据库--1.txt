@@ -99,3 +99,83 @@ create table `select`         //创建表，，select是关键字，，，要是
    id int
 );
 
+
+
+### 1 数据库约束
+
+数据库完整性（保证数据库表符合现实世界的意义）
+1. 实体完整性              primary key
+2. 参照完整性
+3. 用户自定义完整性   unique, null, not null
+
+       *****primary key 和  unique的区别：*****
+        unique             可以为null，但不能重复
+        primary key     不可以为null，也不能重复
+
+
+//定义一个表 -- 带约束的
+create table stu_with_constraint
+(
+   id int,
+   sn int unique,
+   name varchar(20) not null
+);
+
+//插入两行数据
+insert into stu_with_constraint values(1, 20190001, 'kobe');
+insert into stu_with_constraint values(2, 20190002, 'kobe2');
+
+//查询表
+select *from stu_with_constraint; 
++------+----------+-------+
+| id   | sn       | name  |
++------+----------+-------+
+|    1 | 20190001 | kobe  |
+|    2 | 20190002 | kobe2 |
++------+----------+-------+
+2 rows in set (0.00 sec)
+
+//删除表
+drop table  stu_with_constraint;
+//再重新创建表
+create table stu_with_constraint
+(
+   id int primary key,
+   sn int unique,
+   name varchar(20) not null
+);
+
+//查看表结构
+desc stu_with_constraint;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| sn    | int(11)     | YES  | UNI | NULL    |       |
+| name  | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+insert into stu_with_constraint values(1, 20190001, 'kobe');
+insert into stu_with_constraint values(2, 20190002, 'kobe2');
+
+//查询表
+select *from stu_with_constraint;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
