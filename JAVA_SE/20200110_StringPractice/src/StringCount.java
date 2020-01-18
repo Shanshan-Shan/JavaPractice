@@ -1,5 +1,4 @@
-//键盘输入一个字符串，并且统计其中各种字符出现的次数。
-//种类有：大写字母、小写字母、数字、其他
+//键盘输入一个字符串，并且统计其中各种字符出现的次数。种类有：大写字母、小写字母、数字、其他
 
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ public class StringCount {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入一个字符串：");
+		System.out.println("==================");
         String input = sc.next();
         int countUpper = 0;
         int countLower = 0;
