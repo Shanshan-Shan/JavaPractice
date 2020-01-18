@@ -11,12 +11,10 @@ public class StringCount {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入一个字符串：");
         String input = sc.next();
-
         int countUpper = 0;
         int countLower = 0;
         int countNum = 0;
         int countOther = 0;
-
         char[] array = input.toCharArray();
         for (int i = 0; i < array.length; i++) {
             //可以接收一下当前单个字符
@@ -35,6 +33,5 @@ public class StringCount {
         System.out.println("小写字母的个数为：" + countLower);
         System.out.println("数字的个数为：" + countNum);
         System.out.println("其他的个数为：" + countOther);
-
     }
 }
