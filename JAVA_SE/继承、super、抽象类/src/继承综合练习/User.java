@@ -8,9 +8,9 @@ public class User {
     public User() {
     }
 
-    public User(String name, int count) {
+    public User(String name, int money) {
         this.name = name;
-        this.money = count;
+        this.money = money;
     }
 
     //自定义一个显示方法
@@ -20,16 +20,14 @@ public class User {
     public String getName() {
         return name;
     }
-
-    public int getMoney() {
-        return money;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setMoney(int count) {
-        this.money = count;
+    public int getMoney() {
+        return money;
+    }
+    public void setMoney(int money) {
+        this.money = money;
     }
 }
