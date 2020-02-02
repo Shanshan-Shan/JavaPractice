@@ -10,4 +10,8 @@ public class Mouse implements USB{
     public void turnOff() {
         System.out.println("关闭鼠标");
     }
+
+    public void click(){
+        System.out.println("鼠标点击");
+    }
 }
