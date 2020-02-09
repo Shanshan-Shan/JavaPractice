@@ -7,6 +7,13 @@ package Test3;
 //canConstruct("aa", "ab") -> false
 //canConstruct("aa", "aab") -> true
 
+//用到String中的常用方法：1.获取相关方法--charAt-获取指定位置单个字符
+//          2.String与转换相关方法： toCharArray()- 将字符串转为数组
+//思路：方法一
+//1.首先，ransom的长度肯定要小于等于mag的长度
+//2.拿ransom字符串的每一个字符和数组mag对比，mag中必须有ransom字符
+//3.如果mag中找到了和ransom相同的字符，则将此字符置为‘0’，防止多字符对应mag中的同一个字符
+
 public class Code383 {
     public  boolean canConstruct(String ransomNote, String magazine) {
         //char[] ransom = ransomNote.toCharArray();  //用toCharArray方法将字符串转为数组
