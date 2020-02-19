@@ -6,31 +6,37 @@ package Test5;
 // 那么就返回 True。
 
 //思路：对比两个数组对应位置元素，若不等，看是否等于前一个元素
+//长按的情况必须要满足name中的每个字符按照顺序出现在typed中，并且typed中不能出现name中没有的字符。
 public class Code925 {
     public boolean isLongPressedName(String name, String typed) {
-        int n = name.length();
-        int t = typed.length();
-        for (int i = 0; i <= n-1; i++) {
-            if (name.charAt(i) == typed.charAt(i)) {
-                return true;
-            } else if (name.charAt(i) == typed.charAt(i + 1)) {
-                i++;
-                return true;
-            }
-        }
-        int i =0;
-        if( i == n-1){
-            for (int j = n; j < t; j++) {
-                if (typed.charAt(j) == name.charAt(n - 1)) {
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-        }
-        return  false;
-    }
+        int len1=name.length();
+        int len2=typed.length();
+        int i=0;
+        int j=0;
 
+        while(i<len1){
+            boolean flag=false;
+            int num1=1;
+            int num2=0;
+            while(j<len2&&name.charAt(i)==typed.charAt(j)){//在typed中查找name中的字符
+                flag=true;//查到了
+                j++;
+                num2++;
+            }
+            if(!flag) {//没查到
+                return false;
+            }
+            i++;
+            while(i<len1&&name.charAt(i)==name.charAt(i-1)){
+                num1++;
+                i++;
+            }
+            if(num1>num2){
+                return false;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
         String name = "hss";
         String typed = "hhhhsssd";
