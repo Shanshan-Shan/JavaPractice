@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Code977 {
     public int[] sortedSquares(int[] A) {
         int len = A.length;
-        for (int i = 0; i < A.length; i++) {
+        for (int i = 0; i < len; i++) {
             A[i] *= A[i];
         }
         Arrays.sort(A);
