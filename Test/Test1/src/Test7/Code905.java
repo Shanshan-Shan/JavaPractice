@@ -1,9 +1,8 @@
 package Test7;
 
-//按奇偶排序数组
+//按奇偶排序数组--排序标准按奇偶
 //给定一个非负整数数组 A，返回一个数组，在该数组中， A 的所有偶数元素之后跟着所有奇数元素。
 //你可以返回满足此条件的任何数组作为答案。
-//排序标准按奇偶
 public class Code905 {
     public static int[] sortArrayByParity(int[] A) {
         if(A == null || A.length == 1){
