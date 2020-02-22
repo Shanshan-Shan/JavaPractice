@@ -1,5 +1,6 @@
-//简单排序--冒泡排序
-//从后面开始比较，小的向前冒泡
+//简单排序1--冒泡排序
+//从后面开始比较，小的向前冒泡--交换次数多
+//每一趟都把最小的排在最前面
 public class BubbleSort {
     public static void sort(long[] arr){
         long tmp = 0;
