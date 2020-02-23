@@ -16,7 +16,7 @@ public class Code724 {
             sum += nums[i];
         }
         for (int j = 0; j < nums.length; j++) {
-            if(leftsum == sum - nums[j] - leftsum){
+            if(leftsum == sum - nums[j] - leftsum){   //重点--找到这个关系
                 return j;
             }
             leftsum += nums[j];
