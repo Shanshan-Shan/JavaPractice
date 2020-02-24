@@ -1,10 +1,10 @@
 //简单排序--直接插入排序
 
-//找插入位置
+//关键--找插入位置
 public class InsertSort {
     public static void sort(long[] arr){
         long tmp = 0;
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {  //从arr[1]找插入位置
             tmp = arr[i];
             int j = i;
             while (j > 0 && arr[j] >= tmp){
