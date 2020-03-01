@@ -7,6 +7,18 @@ public class Tree {
 
     //插入节点
     public void insert(int val){
+        Node newNode = new Node(val);//封装节点
+        Node cur = root;//引用当前节点
+        Node parent;    //引用父节点
+
+        if(root == null){        //插入第一个节点，root 为空
+            root = newNode;
+            return;
+        }else {
+
+        }
+
+
 
     }
 
