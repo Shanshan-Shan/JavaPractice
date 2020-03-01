@@ -1,9 +1,9 @@
 package 二叉树;
 //二叉树的表现形式--节点
 public class Node {
-    private int val;
-    private Node left;
-    private Node right;
+    public int val;
+    public Node left;
+    public Node right;
 
     public Node() {
     }
