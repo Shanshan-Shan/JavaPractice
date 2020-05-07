@@ -1,4 +1,6 @@
 package Day26_428.数字之和;
+
+//数字之和
 import java.util.Scanner;
 public class Main {
     public static int sum(int a){
